@@ -38,6 +38,10 @@ def Merge(L_arr, R_arr):
 
 def timsort():
     RUN = 32
+    arr = []
+    for x in range(0, 5):
+        arr.append(random.randint(0, 100))
+    print(arr)
     for x in range(0, len(arr), RUN):
         arr[x : x + RUN] = insertion(arr[x : x + RUN])
 
@@ -47,12 +51,12 @@ def timsort():
             arr[x : x + 2 * nextRUN] = Merge(arr[x : x + nextRUN], arr[x + nextRUN: x + 2 * nextRUN])
         nextRUN = nextRUN * 2
 
+    return arr
 
-arr = []
-for x in range(0, 1000):
-    arr.append(random.randint(0, 100))
-print(arr)
-start_time = time.time()
-timsort()
-print("--- %s seconds ---" % (time.time() - start_time))
-print(arr)
+def main():
+    start_time = time.time()
+    print(timsort())
+    print("--- %s seconds ---" % (time.time() - start_time))
+
+if __name__ == '__main__':
+    main()
