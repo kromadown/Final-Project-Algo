@@ -54,9 +54,7 @@ def timsort():
     return arr
 
 def main():
-    start_time = time.time()
     print(timsort())
-    print("--- %s seconds ---" % (time.time() - start_time))
 
 if __name__ == '__main__':
     main()
